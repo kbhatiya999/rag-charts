@@ -123,3 +123,25 @@ When you no longer need it:
 ```bash
 kind delete cluster --name dev-cluster
 ```
+
+---
+
+## Quick Setup
+
+Already read this before? Run this and you're done.
+
+```bash
+# Install everything
+brew install podman-desktop podman kubectl kind helm
+
+# Start Podman
+podman machine init
+podman machine start
+
+# Create cluster
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind create cluster --name dev-cluster
+
+# Verify
+kubectl cluster-info --context kind-dev-cluster
+```
