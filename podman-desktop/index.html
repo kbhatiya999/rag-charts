@@ -341,10 +341,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#install-homebrew" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Install Homebrew
       
     </span>
   </a>
@@ -407,21 +407,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-in-podman-desktop" class="md-nav__link">
+  <a href="#switch-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verify in Podman Desktop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-kubectl-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set kubectl Context
+        Switch Context
       
     </span>
   </a>
@@ -485,10 +474,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
+  <a href="#install-homebrew" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Prerequisites
+        Install Homebrew
       
     </span>
   </a>
@@ -551,21 +540,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-in-podman-desktop" class="md-nav__link">
+  <a href="#switch-context" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Verify in Podman Desktop
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#set-kubectl-context" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Set kubectl Context
+        Switch Context
       
     </span>
   </a>
@@ -616,117 +594,79 @@
 
 <h1 id="podman-desktop">Podman Desktop</h1>
 <p>Podman Desktop is a free, open-source GUI for managing containers and local Kubernetes clusters on macOS — a Docker Desktop alternative.</p>
-<h2 id="prerequisites">Prerequisites</h2>
-<ol>
-<li>Open Terminal (<code>⌘ + Space</code>, type Terminal) and install <strong>Homebrew</strong> if you don't have it:</li>
-</ol>
+<hr />
+<h2 id="install-homebrew">Install Homebrew</h2>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>/bin/bash<span class="w"> </span>-c<span class="w"> </span><span class="s2">&quot;</span><span class="k">$(</span>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh<span class="k">)</span><span class="s2">&quot;</span>
 </code></pre></div>
+<p>Skip if already installed. Homebrew is the package manager used for everything below.</p>
+<hr />
 <h2 id="install-podman-desktop">Install Podman Desktop</h2>
-<ol>
-<li>In Terminal, run:</li>
-</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>brew<span class="w"> </span>install<span class="w"> </span>podman-desktop
 </code></pre></div>
-<ol>
-<li>
-<p>Open <strong>Finder</strong> (<code>⌃ + ⌥ + F</code>) and go to <strong>Applications</strong>. Double-click <strong>Podman Desktop</strong> to launch it.</p>
-</li>
-<li>
-<p>Follow the on-screen setup wizard. When prompted, click <strong>Install</strong> to install the Podman engine.</p>
-</li>
-</ol>
+<p>Open <strong>Finder</strong> (<code>⌃ + ⌥ + F</code>), go to <strong>Applications</strong>, and launch <strong>Podman Desktop</strong>. Follow the setup wizard and click <strong>Install</strong> when prompted.</p>
+<hr />
 <h2 id="install-podman-cli">Install Podman CLI</h2>
-<ol>
-<li>In Terminal, run:</li>
-</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>brew<span class="w"> </span>install<span class="w"> </span>podman
 </code></pre></div>
-<ol>
-<li>Initialize and start the Podman machine:</li>
-</ol>
+<p>Then initialize and start the Podman machine:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>podman<span class="w"> </span>machine<span class="w"> </span>init
 <a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>podman<span class="w"> </span>machine<span class="w"> </span>start
 </code></pre></div>
-<ol>
-<li>Verify it is running:</li>
-</ol>
+<p>Verify it is running:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>podman<span class="w"> </span>info
 </code></pre></div>
+<hr />
 <h2 id="install-kubectl-and-kind">Install kubectl and kind</h2>
-<p><code>kubectl</code> is the Kubernetes CLI. <code>kind</code> runs clusters inside Podman containers.</p>
-<ol>
-<li>In Terminal, run:</li>
-</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>brew<span class="w"> </span>install<span class="w"> </span>kubectl<span class="w"> </span>kind
 </code></pre></div>
-<ol>
-<li>Verify both are installed:</li>
-</ol>
+<p><code>kubectl</code> is the Kubernetes CLI. <code>kind</code> runs clusters inside Podman containers. Verify both:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>kubectl<span class="w"> </span>version<span class="w"> </span>--client
 <a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>kind<span class="w"> </span>version
 </code></pre></div>
+<hr />
 <h2 id="install-helm">Install Helm</h2>
-<p>Helm is the Kubernetes package manager used to install charts.</p>
-<ol>
-<li>In Terminal, run:</li>
-</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>brew<span class="w"> </span>install<span class="w"> </span>helm
 </code></pre></div>
-<ol>
-<li>Verify:</li>
-</ol>
+<p>Helm is the Kubernetes package manager used to deploy charts. Verify:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>helm<span class="w"> </span>version
 </code></pre></div>
+<hr />
 <h2 id="create-a-kubernetes-cluster">Create a Kubernetes Cluster</h2>
-<ol>
-<li>In Terminal, tell Kind to use Podman as its provider:</li>
-</ol>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KIND_EXPERIMENTAL_PROVIDER</span><span class="o">=</span>podman
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
 </code></pre></div>
-<ol>
-<li>Create a cluster named <code>dev-cluster</code>:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
+<p>This tells Kind to use Podman as the container provider, then creates a cluster named <code>dev-cluster</code>. Verify it is running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev-cluster
 </code></pre></div>
-<ol>
-<li>Verify the cluster is running:</li>
-</ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev-cluster
+<p>Open <strong>Podman Desktop</strong>, click the <strong>Kubernetes</strong> icon in the left sidebar — you should see <code>kind-dev-cluster</code> listed as the active context.</p>
+<hr />
+<h2 id="switch-context">Switch Context</h2>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>kind-dev-cluster
 </code></pre></div>
-<h2 id="verify-in-podman-desktop">Verify in Podman Desktop</h2>
-<ol>
-<li>Open <strong>Podman Desktop</strong> from Applications.</li>
-<li>Click the <strong>Kubernetes</strong> icon in the left sidebar.</li>
-<li>You should see <code>kind-dev-cluster</code> listed as the active context.</li>
-</ol>
-<h2 id="set-kubectl-context">Set kubectl Context</h2>
-<p>If you have multiple clusters, set the active one:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>config<span class="w"> </span>use-context<span class="w"> </span>kind-dev-cluster
+<p>Use this when you have multiple clusters and need to switch between them. List all contexts:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts
 </code></pre></div>
-<p>Check all available contexts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kubectl<span class="w"> </span>config<span class="w"> </span>get-contexts
-</code></pre></div>
+<hr />
 <h2 id="delete-the-cluster">Delete the Cluster</h2>
-<p>When you no longer need it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kind<span class="w"> </span>delete<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>kind<span class="w"> </span>delete<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
 </code></pre></div>
+<p>Removes the cluster when you no longer need it.</p>
 <hr />
 <h2 id="quick-setup">Quick Setup</h2>
 <p>Already read this before? Run this and you're done.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Install everything</span>
-<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>brew<span class="w"> </span>install<span class="w"> </span>podman-desktop<span class="w"> </span>podman<span class="w"> </span>kubectl<span class="w"> </span>kind<span class="w"> </span>helm
-<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
-<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Start Podman</span>
-<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>podman<span class="w"> </span>machine<span class="w"> </span>init
-<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>podman<span class="w"> </span>machine<span class="w"> </span>start
-<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
-<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># Create cluster</span>
-<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KIND_EXPERIMENTAL_PROVIDER</span><span class="o">=</span>podman
-<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
-<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
-<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># Verify</span>
-<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev-cluster
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="c1"># Install everything</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>brew<span class="w"> </span>install<span class="w"> </span>podman-desktop<span class="w"> </span>podman<span class="w"> </span>kubectl<span class="w"> </span>kind<span class="w"> </span>helm
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="c1"># Start Podman</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>podman<span class="w"> </span>machine<span class="w"> </span>init
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>podman<span class="w"> </span>machine<span class="w"> </span>start
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a><span class="c1"># Create cluster</span>
+<a id="__codelineno-14-9" name="__codelineno-14-9" href="#__codelineno-14-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KIND_EXPERIMENTAL_PROVIDER</span><span class="o">=</span>podman
+<a id="__codelineno-14-10" name="__codelineno-14-10" href="#__codelineno-14-10"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
+<a id="__codelineno-14-11" name="__codelineno-14-11" href="#__codelineno-14-11"></a>
+<a id="__codelineno-14-12" name="__codelineno-14-12" href="#__codelineno-14-12"></a><span class="c1"># Verify</span>
+<a id="__codelineno-14-13" name="__codelineno-14-13" href="#__codelineno-14-13"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev-cluster
 </code></pre></div>
 
 
