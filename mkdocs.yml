@@ -3,31 +3,13 @@ repo_url: https://github.com/kbhatiya999/rag-charts
 repo_name: rag-charts
 
 theme:
-  name: material
-  features:
-    - content.code.copy
-  palette:
-    - scheme: slate
-      primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/brightness-4
-        name: Switch to light mode
-    - scheme: default
-      primary: deep purple
-      accent: amber
-      toggle:
-        icon: material/brightness-7
-        name: Switch to dark mode
+  name: solar
 
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.snippets
-
-extra_css:
-  - stylesheets/extra.css
 
 nav:
   - Home: index.md
