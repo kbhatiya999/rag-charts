@@ -8,14 +8,14 @@ theme:
     - content.code.copy
   palette:
     - scheme: slate
-      primary: blue grey
-      accent: teal
+      primary: deep purple
+      accent: amber
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
     - scheme: default
-      primary: blue grey
-      accent: teal
+      primary: deep purple
+      accent: amber
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
@@ -25,6 +25,9 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.snippets
+
+extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Home: index.md
