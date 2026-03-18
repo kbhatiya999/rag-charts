@@ -8,7 +8,8 @@ This document provides instructions for AI assistants on how to add new document
 - **Finder-First:** Default to macOS Finder and Zed for all file/folder creation and configuration editing (even for files like `.env`, giving instructions on how to show hidden files in Finder).
 - **No TextEdit/Notepad:** NEVER recommend TextEdit, Notepad, or full IDEs like VSCode. **Zed** is the absolute required default editor for all `.md`, `.yml`, and `.env` files.
 - **Terminal for Commands Only:** Only use Terminal for things that *require* it (e.g., `uv tool install`, `brew install`). Do not use `cwd`, `mkdir`, `touch`, or `nano`.
-- **Direct, Plain English:** Step 1, Step 2, Step 3. Simple sentences. No conversational padding.
+- **Direct, Plain English:** Simple sentences. No conversational padding.
+- **Code First:** Show the code block first, then a brief explanation below it. Never wrap code inside a numbered step. Let the code lead.
 
 ## Documentation Structure
 
