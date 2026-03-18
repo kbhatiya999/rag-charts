@@ -17,7 +17,10 @@ Skip if already installed.
 ## Install Tools
 
 ```bash
-brew install podman-desktop podman helm
+brew install --cask podman-desktop
+brew install helm
+brew install kind
+brew install kubernetes-cli
 brew install --cask freelens
 ```
 
@@ -66,7 +69,10 @@ Click on `dev-cluster` in the sidebar to connect. From here you can browse **Wor
 Already done this before? Just reinstall the tools.
 
 ```bash
-brew install podman-desktop podman helm
+brew install --cask podman-desktop
+brew install helm
+brew install kind
+brew install kubernetes-cli
 brew install --cask freelens
 ```
 
