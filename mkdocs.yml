@@ -25,6 +25,9 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.snippets
 
+extra_css:
+  - stylesheets/extra.css
+
 nav:
   - Home: index.md
   - Local Cluster with Podman Desktop: podman-desktop.md
