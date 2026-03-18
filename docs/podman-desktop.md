@@ -2,127 +2,116 @@
 
 Podman Desktop is a free, open-source GUI for managing containers and local Kubernetes clusters on macOS — a Docker Desktop alternative.
 
-## Prerequisites
+---
 
-1. Open Terminal (`⌘ + Space`, type Terminal) and install **Homebrew** if you don't have it:
+## Install Homebrew
 
-   ```bash
-   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-   ```
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+Skip if already installed. Homebrew is the package manager used for everything below.
+
+---
 
 ## Install Podman Desktop
 
-1. In Terminal, run:
+```bash
+brew install podman-desktop
+```
 
-   ```bash
-   brew install podman-desktop
-   ```
+Open **Finder** (`⌃ + ⌥ + F`), go to **Applications**, and launch **Podman Desktop**. Follow the setup wizard and click **Install** when prompted.
 
-2. Open **Finder** (`⌃ + ⌥ + F`) and go to **Applications**. Double-click **Podman Desktop** to launch it.
-
-3. Follow the on-screen setup wizard. When prompted, click **Install** to install the Podman engine.
+---
 
 ## Install Podman CLI
 
-1. In Terminal, run:
+```bash
+brew install podman
+```
 
-   ```bash
-   brew install podman
-   ```
+Then initialize and start the Podman machine:
 
-2. Initialize and start the Podman machine:
+```bash
+podman machine init
+podman machine start
+```
 
-   ```bash
-   podman machine init
-   podman machine start
-   ```
+Verify it is running:
 
-3. Verify it is running:
+```bash
+podman info
+```
 
-   ```bash
-   podman info
-   ```
+---
 
 ## Install kubectl and kind
 
-`kubectl` is the Kubernetes CLI. `kind` runs clusters inside Podman containers.
+```bash
+brew install kubectl kind
+```
 
-1. In Terminal, run:
+`kubectl` is the Kubernetes CLI. `kind` runs clusters inside Podman containers. Verify both:
 
-   ```bash
-   brew install kubectl kind
-   ```
+```bash
+kubectl version --client
+kind version
+```
 
-2. Verify both are installed:
-
-   ```bash
-   kubectl version --client
-   kind version
-   ```
+---
 
 ## Install Helm
 
-Helm is the Kubernetes package manager used to install charts.
+```bash
+brew install helm
+```
 
-1. In Terminal, run:
+Helm is the Kubernetes package manager used to deploy charts. Verify:
 
-   ```bash
-   brew install helm
-   ```
+```bash
+helm version
+```
 
-2. Verify:
-
-   ```bash
-   helm version
-   ```
+---
 
 ## Create a Kubernetes Cluster
 
-1. In Terminal, tell Kind to use Podman as its provider:
+```bash
+export KIND_EXPERIMENTAL_PROVIDER=podman
+kind create cluster --name dev-cluster
+```
 
-   ```bash
-   export KIND_EXPERIMENTAL_PROVIDER=podman
-   ```
+This tells Kind to use Podman as the container provider, then creates a cluster named `dev-cluster`. Verify it is running:
 
-2. Create a cluster named `dev-cluster`:
+```bash
+kubectl cluster-info --context kind-dev-cluster
+```
 
-   ```bash
-   kind create cluster --name dev-cluster
-   ```
+Open **Podman Desktop**, click the **Kubernetes** icon in the left sidebar — you should see `kind-dev-cluster` listed as the active context.
 
-3. Verify the cluster is running:
+---
 
-   ```bash
-   kubectl cluster-info --context kind-dev-cluster
-   ```
-
-## Verify in Podman Desktop
-
-1. Open **Podman Desktop** from Applications.
-2. Click the **Kubernetes** icon in the left sidebar.
-3. You should see `kind-dev-cluster` listed as the active context.
-
-## Set kubectl Context
-
-If you have multiple clusters, set the active one:
+## Switch Context
 
 ```bash
 kubectl config use-context kind-dev-cluster
 ```
 
-Check all available contexts:
+Use this when you have multiple clusters and need to switch between them. List all contexts:
 
 ```bash
 kubectl config get-contexts
 ```
 
-## Delete the Cluster
+---
 
-When you no longer need it:
+## Delete the Cluster
 
 ```bash
 kind delete cluster --name dev-cluster
 ```
+
+Removes the cluster when you no longer need it.
 
 ---
 
