@@ -27,6 +27,4 @@ markdown_extensions:
 
 nav:
   - Home: index.md
-  - Podman Desktop:
-    - "1. Installation": podman-desktop/1-installation.md
-    - "2. Setup Cluster": podman-desktop/2-setup-cluster.md
+  - Podman Desktop: podman-desktop.md

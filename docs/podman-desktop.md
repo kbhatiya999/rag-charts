@@ -1,4 +1,4 @@
-# 1. Installation
+# Podman Desktop
 
 Podman Desktop is a free, open-source GUI for managing containers and local Kubernetes clusters on macOS — a Docker Desktop alternative.
 
@@ -45,7 +45,7 @@ Podman Desktop is a free, open-source GUI for managing containers and local Kube
 
 ## Install kubectl and kind
 
-`kubectl` is the Kubernetes CLI. `kind` (Kubernetes in Docker) runs clusters inside Podman containers.
+`kubectl` is the Kubernetes CLI. `kind` runs clusters inside Podman containers.
 
 1. In Terminal, run:
 
@@ -76,4 +76,50 @@ Helm is the Kubernetes package manager used to install charts.
    helm version
    ```
 
-**Next:** [2. Setup Cluster](2-setup-cluster.md)
+## Create a Kubernetes Cluster
+
+1. In Terminal, tell Kind to use Podman as its provider:
+
+   ```bash
+   export KIND_EXPERIMENTAL_PROVIDER=podman
+   ```
+
+2. Create a cluster named `dev-cluster`:
+
+   ```bash
+   kind create cluster --name dev-cluster
+   ```
+
+3. Verify the cluster is running:
+
+   ```bash
+   kubectl cluster-info --context kind-dev-cluster
+   ```
+
+## Verify in Podman Desktop
+
+1. Open **Podman Desktop** from Applications.
+2. Click the **Kubernetes** icon in the left sidebar.
+3. You should see `kind-dev-cluster` listed as the active context.
+
+## Set kubectl Context
+
+If you have multiple clusters, set the active one:
+
+```bash
+kubectl config use-context kind-dev-cluster
+```
+
+Check all available contexts:
+
+```bash
+kubectl config get-contexts
+```
+
+## Delete the Cluster
+
+When you no longer need it:
+
+```bash
+kind delete cluster --name dev-cluster
+```
