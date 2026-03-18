@@ -45,21 +45,6 @@ podman info
 
 ---
 
-## Install kubectl and kind
-
-```bash
-brew install kubectl kind
-```
-
-`kubectl` is the Kubernetes CLI. `kind` runs clusters inside Podman containers. Verify both:
-
-```bash
-kubectl version --client
-kind version
-```
-
----
-
 ## Install Helm
 
 ```bash
@@ -120,8 +105,8 @@ Removes the cluster when you no longer need it.
 Already read this before? Run this and you're done.
 
 ```bash
-# Install everything
-brew install podman-desktop podman kubectl kind helm
+# Install
+brew install podman-desktop podman helm
 
 # Start Podman
 podman machine init
