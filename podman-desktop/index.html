@@ -439,6 +439,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#quick-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -572,6 +583,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#quick-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Setup
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -688,6 +710,23 @@
 <h2 id="delete-the-cluster">Delete the Cluster</h2>
 <p>When you no longer need it:</p>
 <div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>kind<span class="w"> </span>delete<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
+</code></pre></div>
+<hr />
+<h2 id="quick-setup">Quick Setup</h2>
+<p>Already read this before? Run this and you're done.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c1"># Install everything</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>brew<span class="w"> </span>install<span class="w"> </span>podman-desktop<span class="w"> </span>podman<span class="w"> </span>kubectl<span class="w"> </span>kind<span class="w"> </span>helm
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="c1"># Start Podman</span>
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>podman<span class="w"> </span>machine<span class="w"> </span>init
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>podman<span class="w"> </span>machine<span class="w"> </span>start
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="c1"># Create cluster</span>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="nb">export</span><span class="w"> </span><span class="nv">KIND_EXPERIMENTAL_PROVIDER</span><span class="o">=</span>podman
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>kind<span class="w"> </span>create<span class="w"> </span>cluster<span class="w"> </span>--name<span class="w"> </span>dev-cluster
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="c1"># Verify</span>
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>kubectl<span class="w"> </span>cluster-info<span class="w"> </span>--context<span class="w"> </span>kind-dev-cluster
 </code></pre></div>
 
 
