@@ -38,3 +38,4 @@ markdown_extensions:
 nav:
   - Home: index.md
   - Local Cluster with Podman Desktop: podman-desktop.md
+  - GPU Inference with Podman: gpu-inference.md
