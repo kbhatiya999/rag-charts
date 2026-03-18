@@ -45,6 +45,30 @@ podman info
 
 ---
 
+## Install kubectl
+
+In **Podman Desktop**, click **Settings** in the bottom-left corner. Go to **Resources**, find **kubectl**, and click **Install**. Podman Desktop will download and configure it automatically.
+
+Verify:
+
+```bash
+kubectl version --client
+```
+
+---
+
+## Install kind
+
+In **Podman Desktop**, click **Extensions** in the left sidebar. Search for **Kind**, click the install icon, then confirm on the **Installed** tab that it is active.
+
+Verify:
+
+```bash
+kind version
+```
+
+---
+
 ## Install Helm
 
 ```bash
