@@ -1,6 +1,6 @@
-# Podman Desktop
+# Podman Desktop + Freelens
 
-Podman Desktop is a free, open-source GUI for managing containers and local Kubernetes clusters on macOS — a Docker Desktop alternative.
+Podman Desktop manages containers and local Kubernetes clusters. Freelens is a free, open-source GUI for browsing and managing those clusters — no CLI needed.
 
 ---
 
@@ -10,136 +10,64 @@ Podman Desktop is a free, open-source GUI for managing containers and local Kube
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Skip if already installed. Homebrew is the package manager used for everything below.
+Skip if already installed.
 
 ---
 
-## Install Podman Desktop
+## Install Tools
 
 ```bash
-brew install podman-desktop
-```
-
-Open **Finder** (`⌃ + ⌥ + F`), go to **Applications**, and launch **Podman Desktop**. Follow the setup wizard and click **Install** when prompted.
-
----
-
-## Install Podman CLI
-
-```bash
-brew install podman
-```
-
-Then initialize and start the Podman machine:
-
-```bash
-podman machine init
-podman machine start
-```
-
-Verify it is running:
-
-```bash
-podman info
+brew install podman-desktop podman helm
+brew install --cask freelens
 ```
 
 ---
 
-## Install kubectl
+## Podman Desktop Setup
 
-In **Podman Desktop**, click **Settings** in the bottom-left corner. Go to **Resources**, find **kubectl**, and click **Install**. Podman Desktop will download and configure it automatically.
+### 1. Launch and Create a Machine
 
-Verify:
+Open **Finder** (`⌃ + ⌥ + F`), go to **Applications**, and launch **Podman Desktop**.
 
-```bash
-kubectl version --client
-```
+On first launch the setup wizard appears. Click **Install** when prompted — this creates and starts your Podman machine automatically.
 
----
+### 2. Install the Kind Extension
 
-## Install kind
+1. Click **Extensions** in the left sidebar.
+2. Search for **Kind**.
+3. Click the install icon next to it.
+4. Go to the **Installed** tab and confirm it is active.
 
-In **Podman Desktop**, click **Extensions** in the left sidebar. Search for **Kind**, click the install icon, then confirm on the **Installed** tab that it is active.
+### 3. Create a Kubernetes Cluster
 
-Verify:
+1. Click **Kubernetes** in the left sidebar.
+2. Click **Create new cluster**.
+3. Select **Kind** as the provider.
+4. Give it a name (e.g. `dev-cluster`) and click **Create**.
 
-```bash
-kind version
-```
-
----
-
-## Install Helm
-
-```bash
-brew install helm
-```
-
-Helm is the Kubernetes package manager used to deploy charts. Verify:
-
-```bash
-helm version
-```
+Podman Desktop will spin up the cluster and set it as your active context.
 
 ---
 
-## Create a Kubernetes Cluster
+## Freelens Setup
 
-```bash
-export KIND_EXPERIMENTAL_PROVIDER=podman
-kind create cluster --name dev-cluster
-```
+### 1. Launch Freelens
 
-This tells Kind to use Podman as the container provider, then creates a cluster named `dev-cluster`. Verify it is running:
+Open **Freelens** from **Applications**. It automatically reads your kubeconfig and detects `dev-cluster`.
 
-```bash
-kubectl cluster-info --context kind-dev-cluster
-```
+### 2. Browse the Cluster
 
-Open **Podman Desktop**, click the **Kubernetes** icon in the left sidebar — you should see `kind-dev-cluster` listed as the active context.
-
----
-
-## Switch Context
-
-```bash
-kubectl config use-context kind-dev-cluster
-```
-
-Use this when you have multiple clusters and need to switch between them. List all contexts:
-
-```bash
-kubectl config get-contexts
-```
-
----
-
-## Delete the Cluster
-
-```bash
-kind delete cluster --name dev-cluster
-```
-
-Removes the cluster when you no longer need it.
+Click on `dev-cluster` in the sidebar to connect. From here you can browse **Workloads**, **Deployments**, **Pods**, **Services**, and more — all without touching the terminal.
 
 ---
 
 ## Quick Setup
 
-Already read this before? Run this and you're done.
+Already done this before? Just reinstall the tools.
 
 ```bash
-# Install
 brew install podman-desktop podman helm
-
-# Start Podman
-podman machine init
-podman machine start
-
-# Create cluster
-export KIND_EXPERIMENTAL_PROVIDER=podman
-kind create cluster --name dev-cluster
-
-# Verify
-kubectl cluster-info --context kind-dev-cluster
+brew install --cask freelens
 ```
+
+Then launch **Podman Desktop** to recreate the machine and cluster, and **Freelens** to connect.
