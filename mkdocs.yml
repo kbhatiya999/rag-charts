@@ -1,4 +1,6 @@
 site_name: RAG Charts
+repo_url: https://github.com/kbhatiya999/rag-charts
+repo_name: rag-charts
 
 theme:
   name: material
