@@ -7,14 +7,15 @@ theme:
   features:
     - content.code.copy
   palette:
-    # Palette toggle for light mode
     - scheme: default
+      primary: blue grey
+      accent: teal
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-
-    # Palette toggle for dark mode
     - scheme: slate
+      primary: blue grey
+      accent: teal
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -24,9 +25,6 @@ markdown_extensions:
       anchor_linenums: true
   - pymdownx.superfences
   - pymdownx.snippets
-
-extra_css:
-  - stylesheets/extra.css
 
 nav:
   - Home: index.md
